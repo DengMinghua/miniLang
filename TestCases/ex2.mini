@@ -1,0 +1,10 @@
+//print integers from 0 to 100
+
+int x ;
+
+x = 0 ;
+
+while (x < 101) {
+  print x ;
+  x = x + 1 ;
+}

@@ -1,0 +1,16 @@
+// Nilakantha's method for computing pi
+
+double nilakantha ;
+nilakantha = 3.0 ;
+print nilakantha ;
+double i ;
+i = 1.0 ;
+double sign ;
+sign = 1.0 ;
+while (i < 21.0) {
+  nilakantha = nilakantha + sign * (4.0/((2.0*i)*(2.0*i+1.0)*(2.0*i+2.0))) ;
+  print nilakantha ;
+  sign = (0.0 - 1.0) * sign ;
+  i = i + 1.0 ;
+}
+

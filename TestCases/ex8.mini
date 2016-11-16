@@ -1,0 +1,11 @@
+string GNU ;
+GNU = "GNU" ;
+print GNU ;
+
+int i ;
+i = 0 ;
+
+while (i++ < 10) {
+  GNU = GNU + "'s Not Unix" ;
+  print GNU ;
+  }

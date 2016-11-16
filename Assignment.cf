@@ -1,0 +1,61 @@
+PBlocks.   Program ::= [Block];
+
+BStm1.      Block ::= Stm ;
+BStms.      Block ::= "{" [Stm] "}" ;
+
+Para.      Par ::= Type Ident ;
+Func.      Fun ::= Type Ident "(" [Par] ")" Block;
+
+SFunc.     Stm ::= Fun;
+SExp.      Stm ::= Exp ";";
+SValDec.   Stm ::= Type [Ident] ";";
+SValInit.  Stm ::= Type [Exp] ";";
+SReturn.   Stm ::= "return" Exp ";";
+SReturnE.  Stm ::= "return" ";";
+SWhile.    Stm ::= "while" "(" Exp ")" Block ;
+SIfElse.   Stm ::= "if" "(" Exp ")" Block "else" Block ;
+SPrint.    Stm ::= "print" Exp ";";
+
+terminator Block "";
+terminator Stm "";
+separator nonempty Exp ",";
+separator nonempty Ident ",";
+separator Par ",";
+
+TypeBool.      Type  ::= "bool" ;
+TypeInt.       Type  ::= "int" ;
+TypeDouble.    Type  ::= "double" ;
+TypeString.    Type  ::= "string" ;
+TypeVoid.      Type  ::= "void" ;
+
+EAssign.       Exp   ::= Ident "=" Exp1 ;
+EDisjunction.  Exp1  ::= Exp1 "||" Exp2 ;
+EConjunction.  Exp2  ::= Exp2 "&&" Exp3 ;
+EEq.           Exp3  ::= Exp3 "==" Exp4 ;
+ENeq.          Exp3  ::= Exp3 "!=" Exp4 ;
+EGt.           Exp4  ::= Exp4 ">" Exp5 ;
+ELt.           Exp4  ::= Exp4 "<" Exp5 ;
+EGte.          Exp4  ::= Exp4 ">=" Exp5 ;
+ELte.          Exp4  ::= Exp4 "<=" Exp5 ;
+EAdd.          Exp5  ::= Exp5 "+" Exp6 ;
+ESub.          Exp5  ::= Exp5 "-" Exp6 ;
+EMul.          Exp6  ::= Exp6 "*" Exp7 ;
+EDiv.          Exp6  ::= Exp6 "/" Exp7 ;
+ENeg.          Exp7  ::= "-" Exp8;
+EPreInc.       Exp8  ::= "++" Exp9;
+EPreDec.       Exp8  ::= "--" Exp9;
+EPostInc.      Exp9  ::= Exp10 "++" ;
+EPostDec.      Exp9  ::= Exp10 "--" ;
+EId.           Exp11 ::= Ident ;
+EInt.          Exp11 ::= Integer ;
+ETrue.         Exp11 ::= "true" ;
+EFalse.        Exp11 ::= "false" ;
+ETrue.         Exp11 ::= "True" ;
+EFalse.        Exp11 ::= "False" ;
+EDouble.       Exp11 ::= Double ;
+EString.       Exp11 ::= String ;
+EFunc.         Exp11 ::= Ident "(" [Exp] ")" ;
+comment "//" ;
+comment "/*" "*/" ;
+
+coercions Exp 11 ;

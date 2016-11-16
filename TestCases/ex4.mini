@@ -1,0 +1,14 @@
+//print the prime numbers under 200
+
+int x = 2 ;
+while (x < 200) {
+  int mx = x/2 ;
+  bool prime = true ;
+  int i = 2 ;
+  while (i <= mx) {
+    if (i * (x/i) == x) prime = false ; else 0 ;
+    i++ ;
+    }
+  if (prime) print x ; else 0 ;
+  x++ ;
+}
