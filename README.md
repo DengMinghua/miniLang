@@ -1,2 +1,2 @@
 # miniLang
-A C-like language interpretor.
+A C-like language interpretor implemented in Haskell.
